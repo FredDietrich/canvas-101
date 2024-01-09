@@ -49,8 +49,12 @@ class CtxHelper {
             obj.y = oy - h
         }
         // Validação 3: Está colidindo ao mover-se para a esquerda
-        if (x < (ox - ow) && !(x < (ox - ow))) {
-            console.log('colidindo a esquerda')
+        if (x < (ox + ow) && !(x < ox)) {
+            obj.x = ox + ow
+        }
+        // Validação 4:
+        if (y < (oy + oh) && !((y) < oy)) {
+            obj.y = oy + oh
         }
     }
 
@@ -100,10 +104,10 @@ class ControllableObject extends Obj {
         switch (pressedKey) {
             case 'a':
             case 'A':
-                for (let i = 0; i < this.speed; i += 0.1) {
-                    this.x -= 0.1
-                }
-                // this.x -= this.speed;
+                // for (let i = 0; i < this.speed; i += 0.1) {
+                //     this.x -= 0.1
+                // }
+                this.x -= this.speed;
                 break;
             case 'd':
             case 'D':
